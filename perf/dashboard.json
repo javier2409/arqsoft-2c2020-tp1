@@ -419,15 +419,15 @@
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "alias": "asPercent(stats.gauges.cadvisor.2c20-tp-1_node_1.memory_usage, 1952000000)",
+          "alias": "asPercent(stats.gauges.cadvisor.arqsoft-2c2020-tp1_node_1.memory_usage, 1952000000)",
           "yaxis": 1
         },
         {
-          "alias": "stats.gauges.cadvisor.2c20-tp-1_gunicorn_1.rx_errors",
+          "alias": "stats.gauges.cadvisor.arqsoft-2c2020-tp1_gunicorn_1.rx_errors",
           "yaxis": 2
         },
         {
-          "alias": "stats.gauges.cadvisor.2c20-tp-1_gunicorn_1.tx_errors",
+          "alias": "stats.gauges.cadvisor.arqsoft-2c2020-tp1_gunicorn_1.tx_errors",
           "yaxis": 2
         }
       ],
@@ -533,8 +533,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "2c20-tp-1_node_1",
-          "value": "2c20-tp-1_node_1"
+          "text": "arqsoft-2c2020-tp1_node_1",
+          "value": "arqsoft-2c2020-tp1_node_1"
         },
         "hide": 0,
         "includeAll": false,
@@ -544,46 +544,46 @@
         "options": [
           {
             "selected": true,
-            "text": "2c20-tp-1_node_1",
-            "value": "2c20-tp-1_node_1"
+            "text": "arqsoft-2c2020-tp1_node_1",
+            "value": "arqsoft-2c2020-tp1_node_1"
           },
           {
             "selected": false,
-            "text": "2c20-tp-1_node_2",
-            "value": "2c20-tp-1_node_2"
+            "text": "arqsoft-2c2020-tp1_node_2",
+            "value": "arqsoft-2c2020-tp1_node_2"
           },
           {
             "selected": false,
-            "text": "2c20-tp-1_node_3",
-            "value": "2c20-tp-1_node_3"
+            "text": "arqsoft-2c2020-tp1_node_3",
+            "value": "arqsoft-2c2020-tp1_node_3"
           },
           {
             "selected": false,
-            "text": "2c20-tp-1_cadvisor_1",
-            "value": "2c20-tp-1_cadvisor_1"
+            "text": "arqsoft-2c2020-tp1_cadvisor_1",
+            "value": "arqsoft-2c2020-tp1_cadvisor_1"
           },
           {
             "selected": false,
-            "text": "2c20-tp-1_grafana_1",
-            "value": "2c20-tp-1_grafana_1"
+            "text": "arqsoft-2c2020-tp1_grafana_1",
+            "value": "arqsoft-2c2020-tp1_grafana_1"
           },
           {
             "selected": false,
-            "text": "2c20-tp-1_graphite_1",
-            "value": "2c20-tp-1_graphite_1"
+            "text": "arqsoft-2c2020-tp1_graphite_1",
+            "value": "arqsoft-2c2020-tp1_graphite_1"
           },
           {
             "selected": false,
-            "text": "2c20-tp-1_gunicorn_1",
-            "value": "2c20-tp-1_gunicorn_1"
+            "text": "arqsoft-2c2020-tp1_gunicorn_1",
+            "value": "arqsoft-2c2020-tp1_gunicorn_1"
           },
           {
             "selected": false,
-            "text": "2c20-tp-1_nginx_1",
-            "value": "2c20-tp-1_nginx_1"
+            "text": "arqsoft-2c2020-tp1_nginx_1",
+            "value": "arqsoft-2c2020-tp1_nginx_1"
           }
         ],
-        "query": "2c20-tp-1_node_1, 2c20-tp-1_node_2, 2c20-tp-1_node_3, 2c20-tp-1_cadvisor_1, 2c20-tp-1_grafana_1, 2c20-tp-1_graphite_1, 2c20-tp-1_gunicorn_1, 2c20-tp-1_nginx_1",
+        "query": "arqsoft-2c2020-tp1_node_1, arqsoft-2c2020-tp1_node_2, arqsoft-2c2020-tp1_node_3, arqsoft-2c2020-tp1_cadvisor_1, arqsoft-2c2020-tp1_grafana_1, arqsoft-2c2020-tp1_graphite_1, arqsoft-2c2020-tp1_gunicorn_1, arqsoft-2c2020-tp1_nginx_1",
         "skipUrlSync": false,
         "type": "custom"
       }
