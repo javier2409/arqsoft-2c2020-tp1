@@ -25,7 +25,7 @@ config:
     - pause: 15
 
 scenarios:
-  - name: Root (/)
+  - name: load testing 1 (/)
     flow:
       - get:
           url: '/ping'
