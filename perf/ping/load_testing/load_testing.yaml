@@ -21,7 +21,7 @@ config:
     - pause: 15
     - name: Plain
       duration: 60
-      arrivalRate: 1
+      arrivalRate: 10
     - pause: 15
 
 scenarios:
