@@ -18,11 +18,15 @@ config:
   pool: 50
 
   phases:
-    - pause: 15
+    - name: Plain
+      duration: 20
+      arrivalRate: 0
     - name: Plain
       duration: 60
       arrivalRate: 10
-    - pause: 15
+    - name: Plain
+      duration: 20
+      arrivalRate: 0
 
 scenarios:
   - name: load testing 1 (/)
