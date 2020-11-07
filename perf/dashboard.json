@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 1,
-  "iteration": 1602517370253,
+  "id": 5,
+  "iteration": 1604790957028,
   "links": [],
   "panels": [
     {
@@ -88,7 +88,7 @@
         {
           "refCount": 0,
           "refId": "B",
-          "target": "aliasByMetric(stats.gauges.$server.scenarioCounts.*)",
+          "target": "aliasByMetric(stats.gauges.$server.scenarioCounts.load_testing_1_-)",
           "textEditor": false
         }
       ],
@@ -139,7 +139,9 @@
         "Errored": "#BF1B00",
         "Errors count": "#BF1B00",
         "Pending": "#447EBC",
-        "Requests completed": "#7EB26D"
+        "Requests completed": "#7EB26D",
+        "Success": "green",
+        "Timeout": "orange"
       },
       "bars": false,
       "dashLength": 10,
@@ -193,15 +195,21 @@
       "steppedLine": false,
       "targets": [
         {
+          "hide": true,
+          "refCount": 0,
           "refId": "B",
           "target": "alias(sumSeries(stats.gauges.$server.errors.*), 'Errored')",
           "textEditor": true
         },
         {
+          "hide": true,
+          "refCount": 0,
           "refId": "A",
           "target": "alias(stats.gauges.$server.requestsCompleted, 'Completed')"
         },
         {
+          "hide": true,
+          "refCount": 0,
           "refId": "C",
           "target": "alias(stats.gauges.$server.pendingRequests, 'Pending')"
         }
@@ -367,7 +375,8 @@
     },
     {
       "aliasColors": {
-        "Memory": "#EAB839"
+        "Success": "green",
+        "Timeout": "orange"
       },
       "bars": false,
       "dashLength": 10,
@@ -386,6 +395,110 @@
         "w": 24,
         "x": 0,
         "y": 21
+      },
+      "hiddenSeries": false,
+      "id": 7,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": 250,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "refCount": 0,
+          "refId": "A",
+          "target": "alias(stats.gauges.$server.codes.504, 'Timeout')"
+        },
+        {
+          "refCount": 0,
+          "refId": "B",
+          "target": "alias(stats.gauges.$server.codes.200, 'Success')"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Status Codes (Timeout vs Success)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Memory": "#EAB839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Graphite",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 28
       },
       "height": "250px",
       "hiddenSeries": false,
@@ -497,7 +610,7 @@
       }
     }
   ],
-  "refresh": "5s",
+  "refresh": false,
   "schemaVersion": 26,
   "style": "dark",
   "tags": [],
@@ -516,12 +629,12 @@
         "name": "server",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "artillery-node",
             "value": "artillery-node"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "artillery-gunicorn",
             "value": "artillery-gunicorn"
           }
@@ -543,7 +656,7 @@
         "name": "container",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "arqsoft-2c2020-tp1_node_1",
             "value": "arqsoft-2c2020-tp1_node_1"
           },
@@ -573,7 +686,7 @@
             "value": "arqsoft-2c2020-tp1_graphite_1"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "arqsoft-2c2020-tp1_gunicorn_1",
             "value": "arqsoft-2c2020-tp1_gunicorn_1"
           },
@@ -621,5 +734,5 @@
   "timezone": "",
   "title": "Main dashboard",
   "uid": "arxIPammk",
-  "version": 1
+  "version": 4
 }
