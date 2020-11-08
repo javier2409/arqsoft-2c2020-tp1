@@ -15,21 +15,22 @@ config:
           port: 8125
           prefix: "artillery-gunicorn"
 
-  pool: 600
+  pool: 50
 
   phases:
     - name: Plain
       duration: 20
       arrivalRate: 0
-    - name: Plain
-      duration: 60
-      arrivalRate: 500
+    - name: Ramp
+      duration: 120
+      arrivalRate: 0
+      rampTo: 1000
     - name: Plain
       duration: 20
       arrivalRate: 0
 
 scenarios:
-  - name: load testing 3 (/)
+  - name: load testing 1 (/)
     flow:
       - get:
-          url: '/proxy'
+          url: '/ping'
