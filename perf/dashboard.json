@@ -15,10 +15,24 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 5,
-  "iteration": 1604790957028,
+  "id": 6,
+  "iteration": 1604879788087,
   "links": [],
   "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 6,
+      "panels": [],
+      "title": "Metrics",
+      "type": "row"
+    },
     {
       "aliasColors": {},
       "bars": false,
@@ -27,76 +41,57 @@
       "datasource": "Graphite",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "unit": "reqps"
         },
         "overrides": []
       },
-      "fill": 7,
+      "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 7,
-        "w": 24,
+        "h": 5,
+        "w": 12,
         "x": 0,
-        "y": 0
+        "y": 1
       },
-      "height": "250px",
       "hiddenSeries": false,
-      "id": 4,
+      "id": 2,
       "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": true,
-        "max": true,
+        "avg": false,
+        "current": false,
+        "max": false,
         "min": false,
-        "rightSide": true,
         "show": true,
-        "sideWidth": 250,
         "total": false,
-        "values": true
+        "values": false
       },
       "lines": true,
       "linewidth": 1,
-      "links": [],
       "nullPointMode": "connected",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
       "pluginVersion": "7.2.1",
-      "pointradius": 5,
-      "points": true,
+      "pointradius": 4,
+      "points": false,
       "renderer": "flot",
       "seriesOverrides": [],
       "spaceLength": 10,
-      "stack": true,
+      "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "hide": true,
           "refCount": 0,
           "refId": "A",
-          "target": "alias(stats.gauges.$server.rps.count, 'Requests attempted')",
-          "textEditor": false
-        },
-        {
-          "hide": true,
-          "refCount": 0,
-          "refId": "C",
-          "target": "alias(stats.gauges.$server.requestsCompleted, 'Requests completed')"
-        },
-        {
-          "refCount": 0,
-          "refId": "B",
-          "target": "aliasByMetric(stats.gauges.$server.scenarioCounts.load_testing_1_-)",
-          "textEditor": false
+          "target": "aliasByMetric(stats.gauges.$Artillery.rps.mean)"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Scenarios launched (stacked)",
+      "title": "Requests per second",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -112,8 +107,101 @@
       },
       "yaxes": [
         {
-          "format": "rps",
-          "label": "",
+          "format": "reqps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "hiddenSeries": false,
+      "id": 16,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 4,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "refId": "A",
+          "target": "aliasByMetric(stats.gauges.$Artillery.scenariosCreated)"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Scenarios launched",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
           "logBase": 1,
           "max": null,
           "min": null,
@@ -135,173 +223,48 @@
     },
     {
       "aliasColors": {
-        "Completed": "#7EB26D",
-        "Errored": "#BF1B00",
-        "Errors count": "#BF1B00",
-        "Pending": "#447EBC",
-        "Requests completed": "#7EB26D",
-        "Success": "green",
-        "Timeout": "orange"
+        "max": "red",
+        "median": "yellow"
       },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Graphite",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 7,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 7
-      },
-      "height": "250",
-      "hiddenSeries": false,
-      "id": 5,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": false,
-        "max": true,
-        "min": false,
-        "rightSide": true,
-        "show": true,
-        "sideWidth": 250,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "connected",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.2.1",
-      "pointradius": 5,
-      "points": true,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "hide": true,
-          "refCount": 0,
-          "refId": "B",
-          "target": "alias(sumSeries(stats.gauges.$server.errors.*), 'Errored')",
-          "textEditor": true
-        },
-        {
-          "hide": true,
-          "refCount": 0,
-          "refId": "A",
-          "target": "alias(stats.gauges.$server.requestsCompleted, 'Completed')"
-        },
-        {
-          "hide": true,
-          "refCount": 0,
-          "refId": "C",
-          "target": "alias(stats.gauges.$server.pendingRequests, 'Pending')"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Requests state (stacked)",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Graphite",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
+          "custom": {},
+          "unit": "ms"
         },
         "overrides": []
       },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 7,
-        "w": 24,
+        "h": 5,
+        "w": 12,
         "x": 0,
-        "y": 14
+        "y": 6
       },
-      "height": "250px",
       "hiddenSeries": false,
-      "id": 3,
+      "id": 12,
       "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": true,
-        "hideZero": false,
-        "max": true,
+        "avg": false,
+        "current": false,
+        "max": false,
         "min": false,
-        "rightSide": true,
         "show": true,
-        "sideWidth": 250,
         "total": false,
-        "values": true
+        "values": false
       },
       "lines": true,
       "linewidth": 1,
-      "links": [],
-      "nullPointMode": "connected",
+      "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
       "pluginVersion": "7.2.1",
-      "pointradius": 5,
+      "pointradius": 4,
       "points": true,
       "renderer": "flot",
       "seriesOverrides": [],
@@ -311,32 +274,25 @@
       "targets": [
         {
           "refCount": 0,
-          "refId": "C",
-          "target": "alias(stats.gauges.$server.scenarioDuration.max, 'Upper')"
-        },
-        {
-          "hide": true,
-          "refCount": 0,
           "refId": "A",
-          "target": "aliasByMetric(stats.gauges.$server.scenarioDuration.min)"
+          "target": "aliasByMetric(stats.gauges.$Artillery.scenarioDuration.median)"
         },
         {
           "refCount": 0,
           "refId": "B",
-          "target": "alias(stats.gauges.$server.scenarioDuration.median, 'Median')"
+          "target": "aliasByMetric(stats.gauges.$Artillery.scenarioDuration.max)"
         },
         {
-          "hide": true,
           "refCount": 0,
-          "refId": "D",
-          "target": "stats.gauges.$server.scenarioDuration.max"
+          "refId": "C",
+          "target": "aliasByMetric(stats.gauges.$Artillery.scenarioDuration.min)"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Response time (client-side)",
+      "title": "Response time",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -353,10 +309,10 @@
       "yaxes": [
         {
           "format": "ms",
-          "label": "",
+          "label": null,
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": null,
           "show": true
         },
         {
@@ -375,38 +331,173 @@
     },
     {
       "aliasColors": {
-        "Success": "green",
-        "Timeout": "orange"
+        "pendingRequests": "red",
+        "requestsCompleted": "green"
       },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Graphite",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "fill": 5,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 12,
+        "y": 6
+      },
+      "hiddenSeries": false,
+      "id": 14,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 4,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "refCount": 0,
+          "refId": "A",
+          "target": "aliasByMetric(stats.gauges.$Artillery.requestsCompleted)"
+        },
+        {
+          "refCount": 0,
+          "refId": "B",
+          "target": "aliasByMetric(stats.gauges.$Artillery.pendingRequests)"
+        },
+        {
+          "refCount": 0,
+          "refId": "C",
+          "target": "alias(sumSeries(stats.gauges.$server.errors.*), 'Errored')",
+          "textEditor": true
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Completed vs pending (stacked)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:423",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:424",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 11
+      },
+      "id": 4,
+      "panels": [],
+      "title": "Resources",
+      "type": "row"
+    },
+    {
+      "aliasColors": {
+        "CPU": "orange"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "unit": "percent"
         },
         "overrides": []
       },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 7,
-        "w": 24,
+        "h": 6,
+        "w": 12,
         "x": 0,
-        "y": 21
+        "y": 12
       },
       "hiddenSeries": false,
-      "id": 7,
+      "id": 8,
       "legend": {
-        "alignAsTable": true,
         "avg": true,
         "current": true,
-        "max": true,
+        "max": false,
         "min": false,
-        "rightSide": true,
         "show": true,
-        "sideWidth": 250,
         "total": false,
         "values": true
       },
@@ -427,21 +518,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "refCount": 0,
           "refId": "A",
-          "target": "alias(stats.gauges.$server.codes.504, 'Timeout')"
-        },
-        {
-          "refCount": 0,
-          "refId": "B",
-          "target": "alias(stats.gauges.$server.codes.200, 'Success')"
+          "target": "alias(asPercent(derivative(stats.gauges.cadvisor.$Container.cpu_cumulative_usage), 10000000000), 'CPU')"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Status Codes (Timeout vs Success)",
+      "title": "CPU Core Usage",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -457,7 +542,7 @@
       },
       "yaxes": [
         {
-          "format": "short",
+          "format": "percent",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -479,100 +564,64 @@
       }
     },
     {
-      "aliasColors": {
-        "Memory": "#EAB839"
-      },
+      "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Graphite",
+      "datasource": null,
+      "decimals": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "unit": "mbytes"
         },
         "overrides": []
       },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 28
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 12
       },
-      "height": "250px",
       "hiddenSeries": false,
-      "hideTimeOverride": false,
-      "id": 1,
+      "id": 10,
       "legend": {
-        "alignAsTable": true,
         "avg": true,
         "current": true,
-        "hideEmpty": true,
-        "hideZero": false,
-        "max": true,
+        "max": false,
         "min": false,
-        "rightSide": true,
         "show": true,
-        "sideWidth": 250,
         "total": false,
         "values": true
       },
       "lines": true,
       "linewidth": 1,
-      "links": [],
-      "nullPointMode": "connected",
+      "nullPointMode": "null",
       "options": {
         "alertThreshold": true
       },
       "percentage": false,
       "pluginVersion": "7.2.1",
-      "pointradius": 5,
-      "points": true,
+      "pointradius": 2,
+      "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "asPercent(stats.gauges.cadvisor.arqsoft-2c2020-tp1_node_1.memory_usage, 1952000000)",
-          "yaxis": 1
-        },
-        {
-          "alias": "stats.gauges.cadvisor.arqsoft-2c2020-tp1_gunicorn_1.rx_errors",
-          "yaxis": 2
-        },
-        {
-          "alias": "stats.gauges.cadvisor.arqsoft-2c2020-tp1_gunicorn_1.tx_errors",
-          "yaxis": 2
-        }
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "hide": false,
-          "refCount": 0,
-          "refId": "C",
-          "target": "alias(removeBelowValue(asPercent(derivative(keepLastValue(stats.gauges.cadvisor.$container.cpu_cumulative_usage, 100)), 10000000000), 0.0001), 'CPU')",
-          "textEditor": false
-        },
-        {
-          "hide": true,
-          "refCount": 0,
           "refId": "A",
-          "target": "alias(removeBelowValue(asPercent(derivative(stats.gauges.cadvisor.$container.cpu_cumulative_usage), 4000000000), 0.00001), 'CPU')"
-        },
-        {
-          "hide": false,
-          "refCount": 0,
-          "refId": "B",
-          "target": "alias(asPercent(stats.gauges.cadvisor.$container.memory_working_set, 10737418240), 'Memory')"
+          "target": "alias(scale(stats.gauges.cadvisor.$Container.memory_working_set, 9.53674316e-7), 'Memory')"
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Resources",
+      "title": "Memory",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -588,15 +637,15 @@
       },
       "yaxes": [
         {
-          "format": "percent",
+          "format": "mbytes",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": null,
           "show": true
         },
         {
-          "format": "Bps",
+          "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -610,42 +659,36 @@
       }
     }
   ],
-  "refresh": false,
+  "refresh": "5s",
   "schemaVersion": 26,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
-        "allValue": null,
         "current": {
-          "text": "artillery-node",
-          "value": "artillery-node"
+          "selected": false,
+          "text": "intensive_load_testing_1_node",
+          "value": "intensive_load_testing_1_node"
         },
         "hide": 0,
-        "includeAll": false,
         "label": null,
-        "multi": false,
-        "name": "server",
+        "name": "Artillery",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "artillery-node",
             "value": "artillery-node"
-          },
-          {
-            "selected": true,
-            "text": "artillery-gunicorn",
-            "value": "artillery-gunicorn"
           }
         ],
-        "query": "artillery-node, artillery-gunicorn",
+        "query": "artillery-node",
         "skipUrlSync": false,
-        "type": "custom"
+        "type": "textbox"
       },
       {
         "allValue": null,
         "current": {
+          "selected": false,
           "text": "arqsoft-2c2020-tp1_node_1",
           "value": "arqsoft-2c2020-tp1_node_1"
         },
@@ -653,10 +696,10 @@
         "includeAll": false,
         "label": null,
         "multi": false,
-        "name": "container",
+        "name": "Container",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "arqsoft-2c2020-tp1_node_1",
             "value": "arqsoft-2c2020-tp1_node_1"
           },
@@ -672,21 +715,6 @@
           },
           {
             "selected": false,
-            "text": "arqsoft-2c2020-tp1_cadvisor_1",
-            "value": "arqsoft-2c2020-tp1_cadvisor_1"
-          },
-          {
-            "selected": false,
-            "text": "arqsoft-2c2020-tp1_grafana_1",
-            "value": "arqsoft-2c2020-tp1_grafana_1"
-          },
-          {
-            "selected": false,
-            "text": "arqsoft-2c2020-tp1_graphite_1",
-            "value": "arqsoft-2c2020-tp1_graphite_1"
-          },
-          {
-            "selected": true,
             "text": "arqsoft-2c2020-tp1_gunicorn_1",
             "value": "arqsoft-2c2020-tp1_gunicorn_1"
           },
@@ -696,43 +724,20 @@
             "value": "arqsoft-2c2020-tp1_nginx_1"
           }
         ],
-        "query": "arqsoft-2c2020-tp1_node_1, arqsoft-2c2020-tp1_node_2, arqsoft-2c2020-tp1_node_3, arqsoft-2c2020-tp1_cadvisor_1, arqsoft-2c2020-tp1_grafana_1, arqsoft-2c2020-tp1_graphite_1, arqsoft-2c2020-tp1_gunicorn_1, arqsoft-2c2020-tp1_nginx_1",
+        "query": "arqsoft-2c2020-tp1_node_1,arqsoft-2c2020-tp1_node_2,arqsoft-2c2020-tp1_node_3,arqsoft-2c2020-tp1_gunicorn_1,arqsoft-2c2020-tp1_nginx_1",
+        "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
       }
     ]
   },
   "time": {
-    "from": "now-3m",
+    "from": "now-5m",
     "to": "now"
   },
-  "timepicker": {
-    "refresh_intervals": [
-      "5s",
-      "10s",
-      "30s",
-      "1m",
-      "5m",
-      "15m",
-      "30m",
-      "1h",
-      "2h",
-      "1d"
-    ],
-    "time_options": [
-      "5m",
-      "15m",
-      "1h",
-      "6h",
-      "12h",
-      "24h",
-      "2d",
-      "7d",
-      "30d"
-    ]
-  },
+  "timepicker": {},
   "timezone": "",
-  "title": "Main dashboard",
-  "uid": "arxIPammk",
-  "version": 4
+  "title": "Dashboard final posta",
+  "uid": "ZJbHjYhMz",
+  "version": 9
 }
