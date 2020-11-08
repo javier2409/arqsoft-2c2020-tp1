@@ -1,0 +1,36 @@
+config:
+  environments:
+    node:
+      target: 'http://localhost:5555/node'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-node"
+    gunicorn:
+      target: 'http://localhost:5555/gunicorn'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-gunicorn"
+
+  pool: 50
+
+  phases:
+    - name: Plain
+      duration: 20
+      arrivalRate: 0
+    - name: Ramp
+      duration: 60
+      arrivalRate: 10
+      rampTo: 1000
+    - name: Plain
+      duration: 20
+      arrivalRate: 0
+
+scenarios:
+  - name: stress testing (/)
+    flow:
+      - get:
+          url: '/ping'
