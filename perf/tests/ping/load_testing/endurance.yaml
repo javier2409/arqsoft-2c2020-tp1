@@ -22,14 +22,14 @@ config:
       duration: 20
       arrivalRate: 0
     - name: Plain
-      duration: 60
-      arrivalRate: 1000
+      duration: 180
+      arrivalRate: 500
     - name: Plain
       duration: 20
       arrivalRate: 0
 
 scenarios:
-  - name: load testing 3 (/)
+  - name: load testing 1 (/)
     flow:
       - get:
           url: '/ping'
