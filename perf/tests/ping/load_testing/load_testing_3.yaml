@@ -23,7 +23,7 @@ config:
       arrivalRate: 0
     - name: Plain
       duration: 60
-      arrivalRate: 500
+      arrivalRate: 400
     - name: Plain
       duration: 20
       arrivalRate: 0
@@ -31,7 +31,5 @@ config:
 scenarios:
   - name: load testing 3 (/)
     flow:
-      - get:
-          url: '/ping'
       - get:
           url: '/ping'
