@@ -6,30 +6,33 @@ config:
         statsd:
           host: localhost
           port: 8125
-          prefix: "artillery-node"
+          prefix: "ramp-node"
     gunicorn:
       target: 'http://localhost:5555/gunicorn'
       plugins:
         statsd:
           host: localhost
           port: 8125
-          prefix: "artillery-gunicorn"
+          prefix: "ramp-gunicorn"
 
-  pool: 50
+  pool: 100
 
   phases:
     - name: Plain
-      duration: 20
+      duration: 15
       arrivalRate: 0
+    - name: Ramp
+      duration: 120
+      arrivalRate: 0
+      rampTo: 40
     - name: Plain
-      duration: 60
-      arrivalRate: 400
-    - name: Plain
-      duration: 20
+      duration: 15
       arrivalRate: 0
 
 scenarios:
   - name: load testing 3 (/)
     flow:
-      - get:
-          url: '/ping'
+      - loop:
+        - get:
+            url: "/ping"
+        count: 80
