@@ -1,0 +1,37 @@
+config:
+  environments:
+    node:
+      target: 'http://localhost:5555/node'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "plain-2-node"
+    gunicorn:
+      target: 'http://localhost:5555/gunicorn'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "plain-2-gunicorn"
+
+  pool: 100
+
+  phases:
+    - name: Plain
+      duration: 15
+      arrivalRate: 0
+    - name: Plain
+      duration: 60
+      arrivalRate: 10
+    - name: Plain
+      duration: 15
+      arrivalRate: 0
+
+scenarios:
+  - name: load testing 3 (/)
+    flow:
+      - loop:
+        - get:
+            url: "/ping"
+        count: 45
