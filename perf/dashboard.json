@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 6,
-  "iteration": 1604879788087,
+  "iteration": 1604880776350,
   "links": [],
   "panels": [
     {
@@ -430,7 +430,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:423",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -439,7 +438,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:424",
           "format": "short",
           "label": null,
           "logBase": 1,
