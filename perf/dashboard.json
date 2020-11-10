@@ -46,7 +46,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1604880776358,
+  "iteration": 1604992922287,
   "links": [],
   "panels": [
     {
@@ -305,17 +305,17 @@
         {
           "refCount": 0,
           "refId": "A",
-          "target": "aliasByMetric(stats.gauges.$Artillery.scenarioDuration.median)"
+          "target": "aliasByMetric(stats.gauges.$Artillery.latency.median)"
         },
         {
           "refCount": 0,
           "refId": "B",
-          "target": "aliasByMetric(stats.gauges.$Artillery.scenarioDuration.max)"
+          "target": "aliasByMetric(stats.gauges.$Artillery.latency.max)"
         },
         {
           "refCount": 0,
           "refId": "C",
-          "target": "aliasByMetric(stats.gauges.$Artillery.scenarioDuration.min)"
+          "target": "aliasByMetric(stats.gauges.$Artillery.latency.min)"
         }
       ],
       "thresholds": [],
@@ -460,6 +460,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:423",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -468,6 +469,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:424",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -496,7 +498,7 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 6,
         "w": 12,
         "x": 0,
         "y": 11
@@ -531,19 +533,19 @@
         {
           "refCount": 0,
           "refId": "A",
-          "target": "aliasByMetric(stats.gauges.$server.errors.*)",
+          "target": "aliasByMetric(stats.gauges.$Artillery.errors.*)",
           "textEditor": true
         },
         {
           "refCount": 0,
           "refId": "B",
-          "target": "alias(stats.gauges.$server.codes.200, 'Success')",
+          "target": "alias(stats.gauges.$Artillery.codes.200, 'Success')",
           "textEditor": true
         },
         {
           "refCount": 0,
           "refId": "C",
-          "target": "alias(stats.gauges.$server.codes.504, 'Timeout')",
+          "target": "alias(stats.gauges.$Artillery.codes.504, 'Timeout')",
           "textEditor": true
         }
       ],
@@ -595,7 +597,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 19
+        "y": 17
       },
       "id": 4,
       "panels": [],
@@ -623,7 +625,7 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 20
+        "y": 18
       },
       "hiddenSeries": false,
       "id": 8,
@@ -718,7 +720,7 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 20
+        "y": 18
       },
       "hiddenSeries": false,
       "id": 10,
@@ -803,8 +805,8 @@
       {
         "current": {
           "selected": false,
-          "text": "intensive_load_testing_1_node",
-          "value": "intensive_load_testing_1_node"
+          "text": "artillery-node",
+          "value": "artillery-node"
         },
         "hide": 0,
         "label": null,
@@ -834,7 +836,7 @@
         "name": "Container",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "arqsoft-2c2020-tp1_node_1",
             "value": "arqsoft-2c2020-tp1_node_1"
           },
@@ -857,9 +859,14 @@
             "selected": false,
             "text": "arqsoft-2c2020-tp1_nginx_1",
             "value": "arqsoft-2c2020-tp1_nginx_1"
+          },
+          {
+            "selected": true,
+            "text": "arqsoft-2c2020-tp1_bbox_1",
+            "value": "arqsoft-2c2020-tp1_bbox_1"
           }
         ],
-        "query": "arqsoft-2c2020-tp1_node_1,arqsoft-2c2020-tp1_node_2,arqsoft-2c2020-tp1_node_3,arqsoft-2c2020-tp1_gunicorn_1,arqsoft-2c2020-tp1_nginx_1",
+        "query": "arqsoft-2c2020-tp1_node_1,arqsoft-2c2020-tp1_node_2,arqsoft-2c2020-tp1_node_3,arqsoft-2c2020-tp1_gunicorn_1,arqsoft-2c2020-tp1_nginx_1,arqsoft-2c2020-tp1_bbox_1",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
@@ -872,7 +879,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Dashboard final posta",
-  "uid": "ZJbHjYhMz",
-  "version": 9
+  "title": "Dashboard",
+  "uid": "ZJbHjYhMza",
+  "version": 2
 }
