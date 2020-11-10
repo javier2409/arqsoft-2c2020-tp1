@@ -1,0 +1,37 @@
+config:
+  environments:
+    server1:
+      target: 'http://localhost:9090/'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "server1-prueba"
+    server2:
+      target: 'http://localhost:9091/'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "server2-prueba"
+
+  pool: 50
+
+  phases:
+    - name: Plain
+      duration: 10
+      arrivalRate: 0
+    - name: Plain
+      duration: 60
+      arrivalRate: 0.5
+    - name: Plain
+      duration: 10
+      arrivalRate: 0
+
+scenarios:
+  - name: load testing 1 (/)
+    flow:
+      - loop:
+        - get:
+            url: '/'
+        count: 1
