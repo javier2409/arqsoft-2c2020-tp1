@@ -6,7 +6,7 @@ config:
         statsd:
           host: localhost
           port: 8125
-          prefix: "artillery-node17"
+          prefix: "artillery-node"
     gunicorn:
       target: 'http://localhost:5555/gunicorn'
       plugins:
@@ -22,15 +22,15 @@ config:
       duration: 20
       arrivalRate: 0
     - name: Ramp
-      duration: 120
-      arrivalRate: 0
+      duration: 60
+      arrivalRate: 10
       rampTo: 1000
     - name: Plain
       duration: 20
       arrivalRate: 0
 
 scenarios:
-  - name: load testing (/)
+  - name: stress testing (/)
     flow:
       - get:
-          url: '/proxy'
+          url: '/ping'
